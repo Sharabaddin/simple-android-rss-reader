@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/textviewtitle"
+        android:textStyle="bold"
+        android:textSize="32sp"/>
+
+    <TextView
+        android:id="@+id/textViewText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewTitle"
+        android:padding="16dp"
+        android:text="@string/textviewtext_te_xtvi_ew_te_xt_t_ex_t_v_ie_w_t_ext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_textviewtext_end"
+        android:textSize="18sp"
+        android:maxLines = "1000000"
+        android:scrollbars = "vertical"
+        android:fadeScrollbars="false"/>
+
+</RelativeLayout>
