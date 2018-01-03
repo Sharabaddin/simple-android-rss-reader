@@ -1,6 +1,7 @@
 package com.example.futurist.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import java.nio.channels.ScatteringByteChannel;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    public static final String EXTRA_MESSAGE = "ChannelPositionClick";
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -33,9 +35,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Add new");
+
+                // Start add new channel
+                Intent intent = new Intent(getApplicationContext(), AddActivity.class);
+                startActivity(intent);
             }
         });
-        
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_channel_in);
         recyclerView.setHasFixedSize(true);
 
@@ -44,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        adapter = new AdapterChannel(channels);
+        adapter = new AdapterChannel(channels,this);
         recyclerView.setAdapter(adapter);
 
         //setContentView(R.layout.activity_main);

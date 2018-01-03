@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class AdapterChannel extends RecyclerView.Adapter<AdapterChannel.ViewHolder> {
-    private static final String TAG = "AdapterChannel";
+public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ViewHolder> {
+    private static final String TAG = "AdapterItem";
     private String[] mDataset;
     private Activity activity;
 
@@ -20,28 +20,26 @@ public class AdapterChannel extends RecyclerView.Adapter<AdapterChannel.ViewHold
 // you provide access to all the views for a data item in a view holder
 public static class ViewHolder extends RecyclerView.ViewHolder {
     // each data item is just a string in this case
-    private TextView infoText;
-    private FloatingActionButton deleteFab;
+    private TextView infoTextItem;
     public ViewHolder(View v) {
         super(v);
-        infoText = (TextView) v.findViewById(R.id.info_text);
-        deleteFab = (FloatingActionButton) v.findViewById(R.id.itemFloatingActionButton);
+        infoTextItem = (TextView) v.findViewById(R.id.info_text_item);
     }
 }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public AdapterChannel(String[] myDataset, Activity activity) {
+    public AdapterItem(String[] myDataset, Activity activity) {
         mDataset = myDataset;
         this.activity = activity;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public AdapterChannel.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public AdapterItem.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                     int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_view_channel, parent, false);
+                .inflate(R.layout.card_view_item, parent, false);
         // set the view's size, margins, paddings and layout parameters
         //...
         ViewHolder vh = new ViewHolder(v);
@@ -53,33 +51,26 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.infoText.setText(mDataset[position]);
+        holder.infoTextItem.setText(mDataset[position]);
 
 
 
         // Select item
         final int  positionClick = position;
-        holder.infoText.setOnClickListener(new View.OnClickListener() {
+        holder.infoTextItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "select item: " + positionClick);
 
                 // Start activity Items from channel
-                Intent intent = new Intent(activity, ItemsActivity.class);
+
+                Intent intent = new Intent(activity, ItemInfoActivity.class);
                 intent.putExtra(MainActivity.EXTRA_MESSAGE, positionClick);
                 activity.startActivity(intent);
 
+
             }
         });
-
-        // Delete item
-        holder.deleteFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "delete item: " + positionClick);
-            }
-        });
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)
